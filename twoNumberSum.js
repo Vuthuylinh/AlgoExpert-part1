@@ -37,11 +37,29 @@ const twoNumberSum2 = (array, targetSum) => {
 		const currentSum = array[left] + array[right];
 		if (currentSum === targetSum) {
 			return [array[left], array[right]]
-		}else if(currentSum<targetSum){
+		} else if (currentSum < targetSum) {
 			left++
-		}else if(currentSum> targetSum){
+		} else if (currentSum > targetSum) {
 			right--
 		}
 	}
+	return []
+}
+
+
+//Solution 3: Use Object /hash table to store remainder
+
+function twoNumberSum3(array, targetSum) {
+	const remainderColection = {}
+	for (const num of array) {
+		let potentialMatch = targetSum - num
+		if (remainderColection.hasOwnProperty(potentialMatch)) {
+			//(potentialMatch in remainderColection)
+			return [potentialMatch, num]
+		} else {
+			remainderColection[num] = true
+		}
+	}
+
 	return []
 }
