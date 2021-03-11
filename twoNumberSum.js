@@ -13,12 +13,12 @@ Sample:
 
 //Solution 1: Use nested loop
 
-const twoNumberSum =(array, targetSum)=> {
-	for(let i=0; i<array.length-1; i++){
+const twoNumberSum1 = (array, targetSum) => {
+	for (let i = 0; i < array.length - 1; i++) {
 		let firstNum = array[i]
-		for(let j = i+1; j<array.length ; j++){
-			let secondNum =array[j]
-			if(firstNum + secondNum === targetSum){
+		for (let j = i + 1; j < array.length; j++) {
+			let secondNum = array[j]
+			if (firstNum + secondNum === targetSum) {
 				return [firstNum, secondNum]
 			}
 		}
@@ -26,4 +26,22 @@ const twoNumberSum =(array, targetSum)=> {
 	return []
 }
 
-twoNumberSum()
+
+//Solution 2: Sort array; Using While loop and 2 pointers -left & right
+
+const twoNumberSum2 = (array, targetSum) => {
+	array.sort((a, b) => a - b)
+	let left = 0
+	let right = array.length - 1
+	while (left < right) {
+		const currentSum = array[left] + array[right];
+		if (currentSum === targetSum) {
+			return [array[left], array[right]]
+		}else if(currentSum<targetSum){
+			left++
+		}else if(currentSum> targetSum){
+			right--
+		}
+	}
+	return []
+}
