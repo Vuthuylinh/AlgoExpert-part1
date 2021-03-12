@@ -20,6 +20,7 @@ class LinkedListNode{
   }
 }
 // Solution 1: for input= sorted linkedlist
+// O(n) time | O(1) space - where n is the number of nodes in the linked list
 function removeDuplicatesFromLinkedList(headLinkedList){
  let currentNode = headLinkedList;
  while(currentNode){
