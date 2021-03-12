@@ -33,3 +33,26 @@ function removeDuplicatesFromLinkedList(headLinkedList){
 
   return headLinkedList
 }
+
+
+// Solution 2: for input= NOT sorted linkedlist => use hash table
+function removeDuplicatesFromLinkedList2(linkedList){
+
+  let lastNode = linkedList
+  let set ={}
+  set[linkedList.value] = true
+
+  let currentNode = lastNode.next  //start from the second node
+
+ while(currentNode !==null){
+  if(set[currentNode.value]){
+    lastNode.next = currentNode.next
+  }else{
+    set[currentNode.value]=true
+    lastNode = currentNode
+  }
+   currentNode = currentNode.next
+ }
+
+ return linkedList;
+}
