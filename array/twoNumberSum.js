@@ -1,7 +1,7 @@
 /*
 TWO NUMBER SUM
 Write a function that takes in a non empty array of distinct integers and an integer representing a target sum. If any two numbers in the input array sumup to the target sum, the function should return them in an array, in any order.
-If no two numbers sumip to the target sum, the function should return an empty array.
+If no TWO NUMBERS that sumup to the target sum, the function should return an empty array.
 
 Note that the target sum has to be obtained by summing two different integers in the array; you can't add a single integer to itself in order to obtain the target sum.
 You can assume that there will be at most one pair of numbers summing up to the target sum
@@ -50,7 +50,7 @@ const twoNumberSum2 = (array, targetSum) => {
 //Solution 3: Use Object /hash table to store remainder
 
 function twoNumberSum3(array, targetSum) {
-	const remainderColection = {}
+	let remainderColection = {}
 	for (const num of array) {
 		let potentialMatch = targetSum - num
 		if (remainderColection.hasOwnProperty(potentialMatch)) {
@@ -63,3 +63,21 @@ function twoNumberSum3(array, targetSum) {
 
 	return []
 }
+
+
+
+// return INDICES (INDEX) of two number that sumup to target
+
+var twoSum = function(nums, target) {
+  let set ={}
+  for(let i=0; i<nums.length; i++){
+      let remainder = target-nums[i]
+      if(remainder in set){
+          return [set[remainder],i]
+      }else{
+          set[nums[i]]= i
+      }
+
+  }
+    return []
+};
