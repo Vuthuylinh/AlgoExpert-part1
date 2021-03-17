@@ -66,14 +66,21 @@ function twoNumberSum3(array, targetSum) {
 
 
 
-// return INDICES (INDEX) of two number that sumup to target
-
+/* another case: return INDICES (INDEX) of two number that sumup to target => Can't sort
+Example:
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Output: Because nums[0] + nums[1] == 9, we return [0, 1].
+*/
 var twoSum = function(nums, target) {
   let set ={}
   for(let i=0; i<nums.length; i++){
       let remainder = target-nums[i]
       if(remainder in set){
-          return [set[remainder],i]
+          return set[remainder]>i
+					?[set[remainder],i]:
+					[i,set[remainder]]
+
       }else{
           set[nums[i]]= i
       }
