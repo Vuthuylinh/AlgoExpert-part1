@@ -19,8 +19,8 @@ Example:
 Approach1: O(n^2)|O(n)
  -> reverse the string into another string => compare
 
-Approach1: O(n)|O(n)
- -> reverse te string, store chars in an array -> compare
+Approach2: O(n)|O(n)
+ -> reverse the string, store chars in an array -> compare
 
 Approach3:O(n)|O(1)
  use while loop (while felt<right)
