@@ -36,3 +36,15 @@ if numOfCoins ===infinity => return -1
 
 */
 
+function coinChange(coins, amount) {
+  let dp = [0].concat(Array(amount).fill(Infinity));
+  const length = amount + 1;
+
+  for(const coin of coins) {
+      for (let i = coin ; i < length ; i++) {
+          dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+      }
+  }
+
+  return dp[amount] === Infinity ? -1 : dp[amount];
+}
