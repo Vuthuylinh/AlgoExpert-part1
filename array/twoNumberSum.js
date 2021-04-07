@@ -9,6 +9,26 @@ You can assume that there will be at most one pair of numbers summing up to the 
 Example:
 - input: array =[3,5,-4,8,11,1,-1,6] ; targetSum =10;
 - output: [-1, 11]
+
+notes:
+- ask questions! there are many approaches to this prompt. definitely ask whether or not the array is mutable
+- ** this question usually has, at most, one pair **
+- all distinct numbers, no repeating numbers
+- pairs will be distinct numbers as well
+- can i sort/mutate the input array?
+- be proactive by asking questions!!!!
+- ** forgot to ask the edge case where no pairs can be found **
+-
+
+
+approach 1 (assumes you can mutate input array):
+space time complexity: O(n)
+sorting the array
+using two pointers to iterate through the input array...
+first pointer will be first index
+second pointer will be the end
+no need for storage variable
+
 */
 
 //Solution 1: Use nested loop
@@ -71,6 +91,19 @@ Example:
 Input: nums = [2,7,11,15], target = 9
 Output: [0,1]
 Output: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+Example:
+[3,5,-4,11,1,-1,6]
+   ^
+
+let set ={}
+
+i=0 => potentialMatch = 10-3 = 7 => set doesn't has 7 -> set[3]: true => {3:true}
+i=1 => potentialMatch = 10-5 = 5 => set[5]: true => {3:true, 5:true}
+i=2 => potentialMatch = 10-(-4) = 14 => set[-4]: true => {3:true, 5:true, -4: true}
+i=3 => potentialMatch = 10-11 = -1 => set[11]: true => {3:true, 5:true, -4:true, 11: true}
+i=4 => potentialMatch = 10-1= 9 => set[1]: true => {3:true, 5:true, -4:true, 11: true, 1:true}
+i=5 => potentialMatch = 10-(-1) = 11 => set[-1]: true => {3:true, 5:true, -4:true, 11: true, 1:true}
 */
 var twoSum = function(nums, target) {
   let set ={}
