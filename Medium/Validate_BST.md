@@ -29,9 +29,19 @@ class BST{
     this.right = null
   }
 }
-
+const validateHelper =(tree, minValue, maxValue)=>{
+	if(tree === null){
+	return true
+}
+	if(tree.value < minValue || tree.value >= maxValue){
+		return false
+	}
+	const leftIsValid = validateHelper(tree.left, minValue, tree.value)
+	const rightIsValid = validateHelper(tree.right, tree.value, maxValue)
+	return leftIsValid && rightIsValid
+}
 function validateBst(tree){
-
+ return validateHelper(tree, -Infinity, Infinity)
 }
 
 
