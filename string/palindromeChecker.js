@@ -70,3 +70,22 @@ function isPalindrome3(string){
  }
 return true
 }
+
+// Solution 4: O(n)|O(1)
+
+function isPalindrome(text){
+  let first = 0;
+  let last = text.length-1-first
+for(let i=first; i<=last; i++){
+  if(text[first] !== text[last]){
+    return false
+  }else{
+    first++
+    last--
+  }
+}
+return true
+}
+
+let result = isPalindrome(string)
+console.log(result)
