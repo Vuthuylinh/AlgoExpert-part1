@@ -5,3 +5,29 @@ You can assume that there will only be the integer values in the `BST` and that 
 Also, for purpose of this question, uplicate integers will be treated as distinct values. In other words, the second largest value in a `BST` conatining values `{5,7,7}` will be `7` not `5`.
 Each `BST` node has an integer `value`, a `left` chil node, and a `right` child node. A node to be said to be valid `BST` node if and only if it satisfies the `BST` property: its `value` is strictly greater than the values of every node to its left; its `value` is less than or equal to the value of every node to its right;
 and its children nodes has to
+
+
+## Solution 1: Time O(n) | Space O(n)
+
+```js
+class BST {
+  constructor(value){
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function findKthLargestValueInBST(tree,k){
+  const sortedNodeValues = [];
+  inOrderTraverse(tree,sortedNodeValues);
+  return sortedNodeValues[sortedNodeValues.length -k];
+}
+
+function inOrderTraverse(node, sortedNodeValues){
+  if(node === null) return;
+  inOrderTraverse(node.left, sortedNodeValues);
+  sortedNodeValues.push(node.value)
+  inOrderTraverse(node.right, sortedNodeValues)
+}
+```
