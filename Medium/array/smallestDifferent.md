@@ -1,4 +1,5 @@
-/*
+#  Smallest Difference
+## Prompt
 Write a function that takes in two non-empty arrays of integers, finds the pairs of numbers (one from each array) whose absolute different is closest to zero, and returns an array containing these two numbers, with the number from the first array in the first position.
 
 Note that the absolute different of two integers is the distance between them on the real number line. For example, the absolute difference of -5 and 5 is 10, and the absolute difference of -5 and -4 is 1
@@ -7,20 +8,22 @@ You can assum that there will be only one pair of numbers with the smallest diff
 input: 2 arrays of itegers
 output: an array of 2 nums have smallest absolute difference
 ----------------------------------------------------
-Approach:
 
-- initialize output = [0,0]
-- initialize minDifference =arr1[0]-arr2[0]
+## Solution:
+
+### Solution1: Brute force Time: O(n^2)
+ #### Approach:
+
+- initialize `output = [0,0]`
+- initialize `minDifference = arr1[0]-arr2[0]`
 - use nested loops:
-    + outer array iterates the arr1 from index 0 to end
-    + inner array iterates the arr2 from index 0 to end
-    absDifference  = Math.abs(arr1[i]-arr2[j])
-    absDifference <min => min = absDifference
-         output[0]=arr1[i]
-         output[1]=arr2[j]
-*/
-
-//Solution1: Brute force Time: O(n^2)
+    - outer array iterates the arr1 from index `i = 0` to end
+    - inner array iterates the arr2 from index `j = 0` to end
+    `absDifference  = Math.abs(arr1[i]-arr2[j])`
+    `absDifference < min => min = absDifference`
+        `output[0]=arr1[i]`
+        `output[1]=arr2[j]`
+```js
 function smallestDifference(arrayOne, arrayTwo) {
   let minGap = Infinity
   let output =[]
@@ -36,14 +39,15 @@ function smallestDifference(arrayOne, arrayTwo) {
    return output
  }
 
-
- //Solution2:
- /*
+```
+### Solution2:
+#### Appoach
  - sort 2 arrays
  - initialize minGap = Infinity
  - initialze ouput =[]
  - initialize indexOne = 0
               indexTwo = 0
+```js
  while indexOne < arrayOne.length && indexTwo < arrayTwo.length
  let currentDifference = Infinity
  let num1 = arrayOne[indexOne]
@@ -65,10 +69,10 @@ function smallestDifference(arrayOne, arrayTwo) {
      ouput =[num1,num2]
      }
 
+```
 
- */
 
-
+```js
  function smallestDifference2(arrayOne, arrayTwo) {
    arrayOne.sort((a,b)=> a-b)
    arrayTwo.sort((a,b)=> a-b)
@@ -98,3 +102,4 @@ function smallestDifference(arrayOne, arrayTwo) {
  }
    return ouput
  }
+```
