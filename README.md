@@ -3,9 +3,15 @@
 <details>
  <summary>Easy</summary>
   <ul>
-    <li>Array </li>
-    <li>String</li>
-    <li>Tree</li>
+   <summary>Array</summary>
+   <li>Two sum</li>
+   <li> Reverse Array</li>
+   <summary>String</summary>
+    <li>Two sum</li>
+    <li> Reverse Array</li>
+   <summary>Tree</summary>
+   <summary>Graph</summary>
+   <summary>Linked List</summary>
   </ul>
 </details>
 
