@@ -1,10 +1,11 @@
 # AlgoExpert Practice
 
-<Easy>Easy
-  <array>Array </array>
-  <String>String </String>
-  <Tree> Tree </Tree>
-  <LinkedList>LinkedList</LinkedList>
-  <Graph> Graph </Graph>
-</Easy>
+<detail>
+  <summary>Easy </summary>
+  <ul>
+    <li>Array </li>
+    <li>String</li>
+    <li>Tree</li>
+  </ul>
+</detail>
 
