@@ -72,18 +72,24 @@ let minSecondIndex = array.length
 
 #### Solution
 
+
+- value : 1-n
+  index : 0 to n-1
  ```js
  function findFirstDuplicateValue(array){
-   for(let value of array){
-     const absValue = Math.abs(value)
+   //iterate the input array
+   for(let value of array){ // 2
+    // calculate absolute value of the element
+     const absValue = Math.abs(value)//2
+    // if they alreadly seen
      if(array[absValue-1]<0) return absValue
-     array[absValue-1] *=-1
+     array[absValue-1] *=-1 // 1-> -1
    }
    return -1
  }
  ```
 
-`[2,1,5,2,3,3,4]-> [2,-1,5,2,3,3,4] ->[-2,-1,5,2,3,3,4] -> [-2,-1,5,2,-3,3,4] -> [-2,-1,5,2,-3,3,4]`
+`[2,1,5,2,3,3,4] -> [2,-1,5,2,3,3,4] ->[-2,-1,5,2,3,3,4] -> [-2,-1,5,2,-3,3,4] -> [-2,-1,5,2,-3,3,4]`
 
 ```js
 i=0 -> value = 2 -> absValue =2 -> array[2-1] =array[1]=1 >0 -> array[1] = 1*(-1) = -1 keep going

@@ -40,7 +40,7 @@ function mergeOverLappingInterval(array){
 }
 
 ```
-## Another solution - same approach
+## Another solution - same approach, different way of for loop
 
 ```js
 function mergeOverlappingInterval(array){
