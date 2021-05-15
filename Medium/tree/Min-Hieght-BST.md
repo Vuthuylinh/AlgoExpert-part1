@@ -22,3 +22,23 @@ A BST is valid if and only of all of its nodes are valid BST nodes.
                          7        22
 ```
 
+### Hints:
+- in order for BST to have minimum height possible, it need to be balanced; in other words, it needs to have roughtly the same number of node each side left - right
+- the input array is sorted => find the middle elementof input array is the mid index, will also be the mid point of value. the mid point will be root node; continute the approach until run out of elements in the array.
+
+## Approach:
+- use a helper function to contructMiddle -> insert root node
+- constructMiddle has 4 arguments: array, bst, startIndx and endIndx
+- midIndx = Math.floor((startIndx + endIndx)/2)
+- midValue = array[midIndx]
+    - if bst === null -> bst = new BST(midValue)
+    - else bst.insert(midValue)
+- constructMiddle for the left: constructMiddle(array,bst,startIndx; midIndx-1)
+- constructMiddle for the right: constructMiddle(array,bst, midIndx+1; endIndx)
+
+- return constructMiddle(array,null,0,array.lenght-1)
+
+## Solution
+
+#### Prerequired
+- BST construction with insert method
